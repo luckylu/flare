@@ -29,5 +29,6 @@ tmp
 apps.yml
 bookmarks.yml
 config.yml
-
+.env
+.vscode/*
 RELEASE_*
