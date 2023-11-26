@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	FlareState "github.com/soulteary/flare/internal/state"
+	FlareState "github.com/luckylu/flare/internal/state"
 )
 
 // TODO：样式优化

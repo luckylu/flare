@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	FlareModel "github.com/soulteary/flare/internal/model"
+	FlareModel "github.com/luckylu/flare/internal/model"
 
 	"gopkg.in/yaml.v2"
 )

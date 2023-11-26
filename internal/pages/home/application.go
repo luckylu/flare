@@ -4,10 +4,10 @@ import (
 	"html/template"
 	"strings"
 
-	FlareData "github.com/soulteary/flare/internal/data"
-	FlareModel "github.com/soulteary/flare/internal/model"
-	FlareMDI "github.com/soulteary/flare/internal/resources/mdi"
-	FlareState "github.com/soulteary/flare/internal/state"
+	FlareData "github.com/luckylu/flare/internal/data"
+	FlareModel "github.com/luckylu/flare/internal/model"
+	FlareMDI "github.com/luckylu/flare/internal/resources/mdi"
+	FlareState "github.com/luckylu/flare/internal/state"
 )
 
 func GenerateApplicationsTemplate(filter string) template.HTML {

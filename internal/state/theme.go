@@ -5,8 +5,8 @@ package state
 import (
 	"html/template"
 
-	FlareData "github.com/soulteary/flare/internal/data"
-	FlareModel "github.com/soulteary/flare/internal/model"
+	FlareData "github.com/luckylu/flare/internal/data"
+	FlareModel "github.com/luckylu/flare/internal/model"
 )
 
 // 程序运行默认使用内置的主题配色

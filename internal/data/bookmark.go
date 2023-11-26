@@ -7,7 +7,7 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	FlareModel "github.com/soulteary/flare/internal/model"
+	FlareModel "github.com/luckylu/flare/internal/model"
 )
 
 func initBookmarks(filePath string, isFavorite bool) (result FlareModel.Bookmarks, err error) {

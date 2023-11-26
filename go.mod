@@ -1,4 +1,4 @@
-module github.com/soulteary/flare
+module github.com/luckylu/flare
 
 go 1.20
 

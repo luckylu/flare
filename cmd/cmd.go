@@ -1,10 +1,10 @@
 package cmd
 
 import (
-	"github.com/soulteary/flare/pkg/logger"
+	"github.com/luckylu/flare/pkg/logger"
 
-	FlareData "github.com/soulteary/flare/internal/data"
-	FlareState "github.com/soulteary/flare/internal/state"
+	FlareData "github.com/luckylu/flare/internal/data"
+	FlareState "github.com/luckylu/flare/internal/state"
 )
 
 func Parse() {

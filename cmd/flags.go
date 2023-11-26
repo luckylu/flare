@@ -8,10 +8,10 @@ import (
 	"strings"
 
 	env "github.com/caarlos0/env/v6"
-	FlareData "github.com/soulteary/flare/internal/data"
-	FlareModel "github.com/soulteary/flare/internal/model"
-	"github.com/soulteary/flare/internal/version"
-	"github.com/soulteary/flare/pkg/logger"
+	FlareData "github.com/luckylu/flare/internal/data"
+	FlareModel "github.com/luckylu/flare/internal/model"
+	"github.com/luckylu/flare/internal/version"
+	"github.com/luckylu/flare/pkg/logger"
 	flags "github.com/spf13/pflag"
 	"gopkg.in/ini.v1"
 )

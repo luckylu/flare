@@ -5,9 +5,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	FlareAuth "github.com/soulteary/flare/internal/auth"
-	FlareData "github.com/soulteary/flare/internal/data"
-	FlareState "github.com/soulteary/flare/internal/state"
+	FlareAuth "github.com/luckylu/flare/internal/auth"
+	FlareData "github.com/luckylu/flare/internal/data"
+	FlareState "github.com/luckylu/flare/internal/state"
 )
 
 func RegisterRouting(router *gin.Engine) {

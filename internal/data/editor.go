@@ -5,7 +5,7 @@ import (
 
 	"github.com/jszwec/csvutil"
 
-	FlareModel "github.com/soulteary/flare/internal/model"
+	FlareModel "github.com/luckylu/flare/internal/model"
 )
 
 // TODO Removed after private link feature support

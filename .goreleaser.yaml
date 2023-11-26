@@ -9,10 +9,10 @@ builds:
       env:
         - CGO_ENABLED=0
       ldflags:
-        - -w -s -X "github.com/soulteary/flare/internal/version.Version={{ .Tag }}" -X "github.com/soulteary/flare/internal/version.Commit={{.Commit}}" -X "github.com/soulteary/flare/internal/version.BuildDate={{.Date}}"
+        - -w -s -X "github.com/luckylu/flare/internal/version.Version={{ .Tag }}" -X "github.com/luckylu/flare/internal/version.Commit={{.Commit}}" -X "github.com/luckylu/flare/internal/version.BuildDate={{.Date}}"
     id: macos
-    goos: [ darwin ]
-    goarch: [ amd64, arm64 ]
+    goos: [darwin]
+    goarch: [amd64, arm64]
 
   - <<: *build_defaults
     id: linux
@@ -23,10 +23,9 @@ builds:
       - "6"
 
 dockers:
-
   - image_templates:
-      - "soulteary/flare:linux-amd64-{{ .Tag }}"
-      - "soulteary/flare:linux-amd64"
+      - "luckylu/flare:linux-amd64-{{ .Tag }}"
+      - "luckylu/flare:linux-amd64"
     dockerfile: docker/goreleaser/Dockerfile.amd64
     use: buildx
     goarch: amd64
@@ -35,36 +34,36 @@ dockers:
       - "--platform=linux/amd64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/flare"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/flare"
+      - "--label=org.opencontainers.image.url=https://github.com/luckylu/flare"
+      - "--label=org.opencontainers.image.source=https://github.com/luckylu/flare"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.licenses=AGPL-v3"
 
   - image_templates:
-      - "soulteary/flare:linux-arm64-{{ .Tag }}"
-      - "soulteary/flare:linux-arm64"
+      - "luckylu/flare:linux-arm64-{{ .Tag }}"
+      - "luckylu/flare:linux-arm64"
     dockerfile: docker/goreleaser/Dockerfile.arm64v8
     use: buildx
     goos: linux
     goarch: arm64
-    goarm: ''
+    goarm: ""
     build_flag_templates:
       - "--pull"
       - "--platform=linux/arm64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/flare"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/flare"
+      - "--label=org.opencontainers.image.url=https://github.com/luckylu/flare"
+      - "--label=org.opencontainers.image.source=https://github.com/luckylu/flare"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.licenses=AGPL-v3"
 
   - image_templates:
-      - "soulteary/flare:linux-armv7-{{ .Tag }}"
-      - "soulteary/flare:linux-armv7"
+      - "luckylu/flare:linux-armv7-{{ .Tag }}"
+      - "luckylu/flare:linux-armv7"
     dockerfile: docker/goreleaser/Dockerfile.arm32v7
     use: buildx
     goos: linux
@@ -75,16 +74,16 @@ dockers:
       - "--platform=linux/arm/v7"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/flare"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/flare"
+      - "--label=org.opencontainers.image.url=https://github.com/luckylu/flare"
+      - "--label=org.opencontainers.image.source=https://github.com/luckylu/flare"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.licenses=AGPL-v3"
 
   - image_templates:
-      - "soulteary/flare:linux-armv6-{{ .Tag }}"
-      - "soulteary/flare:linux-armv6"
+      - "luckylu/flare:linux-armv6-{{ .Tag }}"
+      - "luckylu/flare:linux-armv6"
     dockerfile: docker/goreleaser/Dockerfile.arm32v6
     use: buildx
     goos: linux
@@ -95,27 +94,26 @@ dockers:
       - "--platform=linux/arm/v6"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }}"
-      - "--label=org.opencontainers.image.url=https://github.com/soulteary/flare"
-      - "--label=org.opencontainers.image.source=https://github.com/soulteary/flare"
+      - "--label=org.opencontainers.image.url=https://github.com/luckylu/flare"
+      - "--label=org.opencontainers.image.source=https://github.com/luckylu/flare"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - "--label=org.opencontainers.image.created={{ .Date }}"
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
       - "--label=org.opencontainers.image.licenses=AGPL-v3"
 
-
 docker_manifests:
-  - name_template: "soulteary/flare:{{ .Tag }}"
+  - name_template: "luckylu/flare:{{ .Tag }}"
     image_templates:
-      - "soulteary/flare:linux-amd64-{{ .Tag }}"
-      - "soulteary/flare:linux-arm64-{{ .Tag }}"
-      - "soulteary/flare:linux-armv7-{{ .Tag }}"
-      - "soulteary/flare:linux-armv6-{{ .Tag }}"
+      - "luckylu/flare:linux-amd64-{{ .Tag }}"
+      - "luckylu/flare:linux-arm64-{{ .Tag }}"
+      - "luckylu/flare:linux-armv7-{{ .Tag }}"
+      - "luckylu/flare:linux-armv6-{{ .Tag }}"
     skip_push: "false"
 
-  - name_template: "soulteary/flare:latest"
+  - name_template: "luckylu/flare:latest"
     image_templates:
-      - "soulteary/flare:linux-amd64-{{ .Tag }}"
-      - "soulteary/flare:linux-arm64-{{ .Tag }}"
-      - "soulteary/flare:linux-armv7-{{ .Tag }}"
-      - "soulteary/flare:linux-armv6-{{ .Tag }}"
+      - "luckylu/flare:linux-amd64-{{ .Tag }}"
+      - "luckylu/flare:linux-arm64-{{ .Tag }}"
+      - "luckylu/flare:linux-armv7-{{ .Tag }}"
+      - "luckylu/flare:linux-armv6-{{ .Tag }}"
     skip_push: "false"
