@@ -18,6 +18,7 @@ var MemFs *memfs.FS
 const _ASSETS_BASE_DIR = "assets/guide"
 const _ASSETS_WEB_URI = "/" + _ASSETS_BASE_DIR
 
+//go:embed guide-assets
 var IntroAssets embed.FS
 
 func Init() {

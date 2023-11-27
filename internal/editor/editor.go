@@ -19,6 +19,7 @@ var MemFs *memfs.FS
 const _ASSETS_BASE_DIR = "assets/editor"
 const _ASSETS_WEB_URI = "/" + _ASSETS_BASE_DIR
 
+//go:embed editor-assets
 var editorAssets embed.FS
 
 func Init() {

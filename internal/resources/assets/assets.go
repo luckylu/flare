@@ -5,6 +5,8 @@ import (
 	"embed"
 	"fmt"
 	"net/http"
+	"os"
+	"path/filepath"
 	"strings"
 	"time"
 
@@ -23,6 +25,15 @@ func RegisterRouting(router *gin.Engine) {
 	router.GET("/favicon.ico", func(c *gin.Context) {
 		c.Header("Cache-Control", "public, max-age=31536000")
 		c.FileFromFS("favicon.ico", http.FS(Favicon))
+	})
+
+	router.GET("/bg.jpg", func(c *gin.Context) {
+		c.Header("Cache-Control", "public, max-age=31536000")
+		rootDir, _ := os.Getwd()
+		filePath := filepath.Join(rootDir, "bg.jpg")
+
+		// 返回静态文件
+		c.File(filePath)
 	})
 
 	if FlareState.AppFlags.DebugMode {

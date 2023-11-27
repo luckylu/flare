@@ -32,3 +32,4 @@ config.yml
 .env
 .vscode/*
 RELEASE_*
+bg.jpg

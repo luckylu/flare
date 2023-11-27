@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html, body{
+  height: 100%;
+}
+
+
 body {
   --color-background: #2d3436;
   --color-primary: #effbff;
@@ -13,8 +18,15 @@ body {
   transition: background-color 0.3s;
   font-family: Roboto, sans-serif;
   font-size: 14px;
+  background-image: url('/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(3px);
 }
-
+input::placeholder {
+  color: var(--color-primary);
+}
 h1,
 h2,
 h3,
