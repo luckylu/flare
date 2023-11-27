@@ -69,9 +69,11 @@ const emptyPageBodyStyle = template.CSS(``)
 
 func UpdatePagePalettes() {
 	theme := FlareData.GetThemeName()
+	backgroundImageBlur := FlareData.GetBackgroundImageBlur()
+
 	for _, themePresent := range ThemePalettes {
 		if themePresent.Name == theme {
-			_CACHE_PAGE_BODY_THEME_NAME = template.CSS(`--color-background:` + themePresent.Colors.Background + `;--color-primary:` + themePresent.Colors.Primary + `;--color-accent:` + themePresent.Colors.Accent + `;`)
+			_CACHE_PAGE_BODY_THEME_NAME = template.CSS(`--color-background:` + themePresent.Colors.Background + `;--color-primary:` + themePresent.Colors.Primary + `;--color-accent:` + themePresent.Colors.Accent + `;` + `--blur:` + backgroundImageBlur + `;`)
 			return
 		}
 	}

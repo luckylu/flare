@@ -38,8 +38,9 @@ func updateAppearanceOptions(c *gin.Context) {
 		IconMode            string `form:"icon-mode"`
 		KeepLetterCase      bool   `form:"keep-letter-case"`
 
-		OptionCustomDay   string `form:"custom-day"`
-		OptionCustomMonth string `form:"custom-month"`
+		OptionCustomDay     string `form:"custom-day"`
+		OptionCustomMonth   string `form:"custom-month"`
+		BackgroundImageBlur string `form:"background-image-blur"`
 	}
 
 	var body UpdateBody
@@ -62,6 +63,7 @@ func updateAppearanceOptions(c *gin.Context) {
 	update.HideHelpButton = body.HideHelpButton
 	update.EnableEncryptedLink = body.EnableEncryptedLink
 	update.KeepLetterCase = body.KeepLetterCase
+	update.BackgroundImageBlur = body.BackgroundImageBlur
 
 	requestIconMode := strings.ToUpper(body.IconMode)
 	if requestIconMode != "DEFAULT" && requestIconMode != "FILLING" {
@@ -71,6 +73,7 @@ func updateAppearanceOptions(c *gin.Context) {
 	}
 
 	FlareData.UpdateAppearance(update)
+	FlareState.UpdatePagePalettes()
 
 	pageAppearance(c)
 }
@@ -108,6 +111,7 @@ func pageAppearance(c *gin.Context) {
 			"OptionKeepLetterCase":      options.KeepLetterCase,
 			"OptionIconModeDefault":     IconModeDefault,
 			"OptionIconModeFilling":     IconModeFilling,
+			"OptionBackgroundImageBlur": options.BackgroundImageBlur,
 		},
 	)
 }

@@ -57,4 +57,5 @@
 <select name=hide-help-button id=settings-hide-help-button><option value=1 selected>是<option value=0>否</select>
 {{ else }}
 <select name=hide-help-button id=settings-hide-help-button><option value=0 selected>否<option value=1>是</select>
-{{ end }}</div><div class=form-group><input class=btn-submit type=submit value=保存修改></div></form></div>{{ end }}
+{{ end }}</div><div class=form-group><label for=settings-blur>自定义背景图Blur</label>
+<input name=background-image-blur id=settings-blur class=option-input placeholder=3px value={{.OptionBackgroundImageBlur}}><p class=help-text>如果你希望背景图模糊，可以输入大于 0px 的值</div><div class=form-group><input class=btn-submit type=submit value=保存修改></div></form></div>{{ end }}

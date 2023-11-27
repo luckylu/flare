@@ -50,6 +50,8 @@ ShowWeather: true
 Location: "北京市"
 # 保持界面中链接大小写和配置中一致
 KeepLetterCase: false
+# 应用背景模糊程度
+BackgroundImageBlur: "0px"
 `)
 
 	ok := saveFile(filePath, out)

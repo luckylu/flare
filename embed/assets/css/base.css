@@ -14,6 +14,7 @@ body {
   --color-primary: #effbff;
   --color-accent: #ffa500;
   --spacing-ui: 10px;
+  --blur: 20px;
   background-color: var(--color-background);
   transition: background-color 0.3s;
   font-family: Roboto, sans-serif;
@@ -22,7 +23,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(var(--blur));
 }
 input::placeholder {
   color: var(--color-primary);
@@ -73,6 +74,7 @@ h2 a {
   top: 0;
   bottom: 0;
   display: block;
+  overflow: auto;
 }
 
 #page-home {

@@ -8,6 +8,10 @@ func GetThemeName() string {
 	return GetAllSettingsOptions().Theme
 }
 
+func GetBackgroundImageBlur() string {
+	return GetAllSettingsOptions().BackgroundImageBlur
+}
+
 func UpdateThemeName(theme string) bool {
 	options := GetAllSettingsOptions()
 	options.Theme = theme
@@ -61,6 +65,7 @@ func UpdateAppearance(update FlareModel.Application) bool {
 	options.EnableEncryptedLink = update.EnableEncryptedLink
 	options.IconMode = update.IconMode
 	options.KeepLetterCase = update.KeepLetterCase
+	options.BackgroundImageBlur = update.BackgroundImageBlur
 
 	return saveAppConfigToYamlFile("config", options)
 }
