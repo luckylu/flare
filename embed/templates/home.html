@@ -25,23 +25,23 @@
     <div class="pageview" id="page-home">
       <div class="container no-select">
 
+        {{ if .ShowSearchComponent }}
         <div class="module-container" id="search-container">
-          <form action="https://www.google.com/search">
-            <input type="text" name="q" class="search" autofocus
-              autocomplete="off"
-              placeholder="search with google" />
-          </form>
-          {{ if .ShowSearchComponent }}
           <form action="/" method="POST">
-            <input type="text" name="search" class="search" autocomplete="off"
+            {{ if .DisabledSearchAutoFocus }}
+            <input type="text" name="search" id="search" autocomplete="off"
               placeholder="{{.SearchKeyword}}" />
+            {{ else }}
+            <input type="text" name="search" id="search" autocomplete="off"
+              autofocus placeholder="{{.SearchKeyword}}" />
+            {{ end}}
             {{ if .HasKeyword }}
             <a href="/">>> TIPS: 点此标签或再次敲击回车，返回首页</a>
             {{ end }}
             <label for="search" id="search-label">书签太多？试试搜索你想寻找的书签吧 :)</label>
           </form>
-          {{ end }}
         </div>
+        {{ end }}
 
         <div class="module-container" id="hero-container">
           <div id="plugin-datetime">

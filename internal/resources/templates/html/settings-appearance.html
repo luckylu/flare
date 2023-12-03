@@ -1,4 +1,4 @@
-{{ define "settings-appearance.html" }}<div class=setting-group-container><form method=post action="{{ .SettingPages.Appearance.Path }}"><h2>通用设置</h2><div class=form-group><label for=settings-title>自定义标题</label>
+{{ define "settings-appearance.html" }}<div class=setting-group-container><form method=post action="{{ .SettingPages.Appearance.Path }}" enctype=multipart/form-data><h2>通用设置</h2><div class=form-group><label for=settings-title>自定义标题</label>
 <input name=title id=settings-title class=option-input placeholder=站点标题 value={{.OptionTitle}}></div><div class=form-group><label for=settings-footer>自定义页脚</label>
 <textarea name=footer id=settings-footer class=option-input cols=30 rows=10 placeholder="输入你自己的文本或 HTML 片段">{{.OptionFooter}}</textarea><p class=help-text>如不希望展示页脚，可以将内容清空</div><div class=form-group><label for=settings-open-app-newtab>总是在新窗口打开应用</label>
 {{ if .OptionOpenAppNewTab }}
@@ -57,5 +57,6 @@
 <select name=hide-help-button id=settings-hide-help-button><option value=1 selected>是<option value=0>否</select>
 {{ else }}
 <select name=hide-help-button id=settings-hide-help-button><option value=0 selected>否<option value=1>是</select>
-{{ end }}</div><div class=form-group><label for=settings-blur>自定义背景图Blur</label>
+{{ end }}</div><div class=form-group><label for=upload-image>上传背景图</label>
+<input type=file name=file id=upload-image class=option-input placeholder=3px><p class=help-text>上传图片后需要清除缓存重新加载页面，MacOS快捷键：Cmd+Shift+R</div><div class=form-group><label for=settings-blur>自定义背景图Blur</label>
 <input name=background-image-blur id=settings-blur class=option-input placeholder=3px value={{.OptionBackgroundImageBlur}}><p class=help-text>如果你希望背景图模糊，可以输入大于 0px 的值</div><div class=form-group><input class=btn-submit type=submit value=保存修改></div></form></div>{{ end }}

@@ -1,7 +1,8 @@
 {{ define "settings-appearance.html" }}
 <div class="setting-group-container">
 
-    <form method="POST" action="{{ .SettingPages.Appearance.Path }}">
+    <form method="POST" action="{{ .SettingPages.Appearance.Path }}"
+        enctype="multipart/form-data">
         <h2>通用设置</h2>
         <div class="form-group">
             <label for="settings-title">自定义标题</label>
@@ -200,8 +201,17 @@
             {{ end }}
         </div>
         <div class="form-group">
+            <label for="upload-image">上传背景图</label>
+
+            <input type="file" name="file" id="upload-image"
+                class="option-input" placeholder="3px">
+            <p class="help-text">上传图片后需要清除缓存重新加载页面，MacOS快捷键：Cmd+Shift+R</p>
+        </div>
+
+        <div class="form-group">
             <label for="settings-blur">自定义背景图Blur</label>
-            <input type="text" name="background-image-blur" id="settings-blur"
+            <input type="text" name="background-image-blur"
+                id="settings-blur"
                 class="option-input" placeholder="3px"
                 value="{{.OptionBackgroundImageBlur}}">
             <p class="help-text">如果你希望背景图模糊，可以输入大于 0px 的值</p>

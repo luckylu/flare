@@ -1,10 +1,9 @@
 # 新功能
-### 1. 增加了Google搜索框，方便快速搜索
-### 2. 增加了背景图
-使用方法：把背景图命名为bg.jpg，然后放在主机上要映射到docker的目录，如果觉得背景图干扰到了文字显示，可以到界面设置里-自定义背景图Blur里设置一个较大的值实现背景图毛玻璃效果
+### 1. 增加了背景图
+使用方法：设置-界面-上传背景图
 
+![setting screenshot](https://github.com/luckylu/flare/raw/main/screenshots/setting.png)
 ![homepage screenshot](https://github.com/luckylu/flare/raw/main/screenshots/homepage.jpg)
-![setting screenshot](https://github.com/luckylu/flare/raw/main/screenshots/setting.jpg)
 ![homepage-blur screenshot](https://github.com/luckylu/flare/raw/main/screenshots/homepage-blur.jpg)
 
 使用docker-compose.yml

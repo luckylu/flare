@@ -1,8 +1,12 @@
 package appearance
 
 import (
+	"fmt"
 	"html/template"
+	"io"
 	"net/http"
+	"os"
+	"path/filepath"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -49,6 +53,8 @@ func updateAppearanceOptions(c *gin.Context) {
 		return
 	}
 
+	uploadImage(c)
+
 	var update FlareModel.Application
 	update.Title = body.OptionTitle
 	update.Footer = body.OptionFooter
@@ -76,6 +82,37 @@ func updateAppearanceOptions(c *gin.Context) {
 	FlareState.UpdatePagePalettes()
 
 	pageAppearance(c)
+}
+
+func uploadImage(c *gin.Context) {
+	file, err := c.FormFile("file")
+	if err != nil {
+		fmt.Println("error:" + err.Error())
+		return
+	}
+
+	uploadedFile, err := file.Open()
+	if err != nil {
+		fmt.Println("error:" + err.Error())
+		return
+	}
+	defer uploadedFile.Close()
+
+	rootDir, _ := os.Getwd()
+	destinationPath := filepath.Join(rootDir, "bg.jpg")
+	destinationFile, err := os.Create(destinationPath)
+	if err != nil {
+		fmt.Println("error:" + err.Error())
+		return
+	}
+	defer destinationFile.Close()
+
+	_, err = io.Copy(destinationFile, uploadedFile)
+	if err != nil {
+		fmt.Println("error:" + err.Error())
+		return
+	}
+
 }
 
 func pageAppearance(c *gin.Context) {
